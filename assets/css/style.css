@@ -8,8 +8,8 @@
 }
 
 img {
-  height: 600px;
-  width: 600px;
+  height: 270px;
+  width: 270px;
 }
 
 /* Header */
@@ -22,5 +22,21 @@ header {
     font-size: 4.5rem;
     padding: 2rem 0;
     font-weight: 700;
+  }
+}
+
+/* date font: 👉🏻 font-family: "Sometype Mono", monospace; */
+body {
+  background-image: url(../img/cork.png);
+  main {
+    .photo_card {
+      background-color: white;
+      height: 360px;
+      width: 300px;
+      text-align: center;
+      .card_body {
+        padding-top: 1rem;
+      }
+    }
   }
 }
