@@ -13,7 +13,8 @@ fetch(booleanEndPoint)
   .then(data => {
     // cycle through the data and save the needed variables to fill the cards
     renderCards(data)
-  })
+
+  }).catch(err => console.error(err))
 
 
 
