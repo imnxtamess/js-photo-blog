@@ -26,6 +26,8 @@ header {
 }
 
 /* date font: 👉🏻 font-family: "Sometype Mono", monospace; */
+
+/*Main Layout*/
 body {
   background-image: url(../img/cork.png);
   main {
@@ -34,8 +36,29 @@ body {
       height: 360px;
       width: 300px;
       text-align: center;
+      box-shadow: 5px 5px 15px;
       .card_body {
+        position: relative;
         padding-top: 1rem;
+        .pin {
+          height: 30px;
+          position: absolute;
+          transform: translateX(-50%) translateY(-50%);
+          left: 50%;
+          top: 2%;
+        }
+      }
+      .card_footer {
+        margin-left: 1rem;
+        text-align: left;
+        .date {
+          font-family: "Sometype Mono", monospace;
+          color: gray;
+        }
+        .card_title {
+          font-weight: 600;
+          font-size: 2rem;
+        }
       }
     }
   }
