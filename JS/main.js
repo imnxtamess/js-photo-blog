@@ -33,7 +33,7 @@ fetch(booleanEndPoint)
                         </div>
                       </div>`
       console.log(markup);
-
+      cardContainerEl.insertAdjacentHTML('beforeend', markup)
 
 
     });
