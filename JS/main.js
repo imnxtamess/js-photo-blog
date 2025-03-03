@@ -3,7 +3,9 @@
 // select the dom nodes
 
 const cardContainerEl = document.querySelector(".row")
-
+const selectedCardContainerEl = document.querySelector(".selected_card_container")
+const selectedCardEl = document.querySelector(".selected_card div img")
+console.log(selectedCardEl.src);
 
 // make an ajax request to the boolean endpoint and render the cards on page
 
@@ -14,13 +16,17 @@ fetch(booleanEndPoint)
   .then(data => {
     // cycle through the data and save the needed variables to fill the cards
     renderCards(data)
-    const photo_cardEl = document.querySelectorAll(".card_body")
-    console.log(photo_cardEl);
-    photo_cardEl.forEach(card => {
-      card.addEventListener("click", function () {
-
+    const cardImgEl = document.querySelectorAll(".card_body img:last-child")
+    cardImgEl.forEach((img, index, arr) => {
+      let imgSrc = img.src
+      console.log(imgSrc);
+      img.addEventListener("click", function () {
+        console.log(`i clicked ${index} ${imgSrc}`);
+        console.log(selectedCardEl.src);
+        selectedCardEl.src = `${imgSrc}`
+        console.log(selectedCardEl);
+        selectedCardContainerEl.classList.remove("d-none")
       })
-
     })
 
   }).catch(err => console.error(err))
