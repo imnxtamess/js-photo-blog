@@ -5,7 +5,6 @@
 const cardContainerEl = document.querySelector(".row")
 const selectedCardContainerEl = document.querySelector(".selected_card_container")
 const selectedCardEl = document.querySelector(".selected_card div img")
-console.log(selectedCardEl.src);
 const closeBtnEl = document.querySelector(".btn")
 
 // make an ajax request to the boolean endpoint and render the cards on page
@@ -17,15 +16,13 @@ fetch(booleanEndPoint)
   .then(data => {
     // cycle through the data and save the needed variables to fill the cards
     renderCards(data)
+
+    // after the cards have been rendered i can select the dom elements and add an event listener to each of them
     const cardImgEl = document.querySelectorAll(".card_body img:last-child")
-    cardImgEl.forEach((img, index, arr) => {
-      let imgSrc = img.src
-      console.log(imgSrc);
+    cardImgEl.forEach((img) => {
+      let imgSrc = img.src // Create a variable for the selected img src attribute
       img.addEventListener("click", function () {
-        console.log(`i clicked ${index} ${imgSrc}`);
-        console.log(selectedCardEl.src);
-        selectedCardEl.src = `${imgSrc}`
-        console.log(selectedCardEl);
+        selectedCardEl.src = `${imgSrc}` // Change the selected img src to the clicked img src
         selectedCardContainerEl.classList.remove("d-none")
       })
     })
