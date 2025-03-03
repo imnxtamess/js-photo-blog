@@ -17,15 +17,8 @@ fetch(booleanEndPoint)
     // cycle through the data and save the needed variables to fill the cards
     renderCards(data)
 
-    // after the cards have been rendered i can select the dom elements and add an event listener to each of them
-    const cardImgEl = document.querySelectorAll(".card_body img:last-child")
-    cardImgEl.forEach((img) => {
-      let imgSrc = img.src // Create a variable for the selected img src attribute
-      img.addEventListener("click", function () {
-        selectedCardEl.src = `${imgSrc}` // Change the selected img src to the clicked img src
-        selectedCardContainerEl.classList.remove("d-none")
-      })
-    })
+    // call a function to change the imgSrc of the selectedCardEl and remove the d-none class from it
+    changeImgSrc()
 
   }).catch(err => console.error(err))
 
@@ -36,7 +29,13 @@ closeBtnEl.addEventListener("click", function () {
 })
 
 
-// FUNCTIONS
+
+
+
+
+
+
+// FUNCTIONS 📌
 
 
 /**
@@ -67,7 +66,7 @@ function markup(title, date, imgUrl) {
 /**
  * 
  * @param {Object Array} data 
- * forEach Object in the given array it saves title,date,imgUrl Key values into variables
+ * @description forEach Object in the given array it saves title,date,imgUrl Key values into variables
  * and pushesh them to the html by calling the markup () function
  * 
  */
@@ -81,3 +80,16 @@ function renderCards(data) {
   })
 }
 
+/**
+ * @description forEach img changes the "selectedCard" src to the clicked image's one
+ */
+function changeImgSrc() {
+  const cardImgEl = document.querySelectorAll(".card_body img:last-child")
+  cardImgEl.forEach((img) => {
+    let imgSrc = img.src // Create a variable for the selected img src attribute
+    img.addEventListener("click", function () {
+      selectedCardEl.src = `${imgSrc}` // Change the selected img src to the clicked img src
+      selectedCardContainerEl.classList.remove("d-none")
+    })
+  })
+}
