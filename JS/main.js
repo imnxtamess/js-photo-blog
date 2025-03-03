@@ -6,6 +6,7 @@ const cardContainerEl = document.querySelector(".row")
 const selectedCardContainerEl = document.querySelector(".selected_card_container")
 const selectedCardEl = document.querySelector(".selected_card div img")
 console.log(selectedCardEl.src);
+const closeBtnEl = document.querySelector(".btn")
 
 // make an ajax request to the boolean endpoint and render the cards on page
 
@@ -33,8 +34,9 @@ fetch(booleanEndPoint)
 
 
 
-
-
+closeBtnEl.addEventListener("click", function () {
+  selectedCardContainerEl.classList.add("d-none")
+})
 
 
 // FUNCTIONS
