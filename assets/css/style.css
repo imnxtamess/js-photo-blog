@@ -62,3 +62,22 @@ body {
     }
   }
 }
+
+.btn {
+  font-family: "Sometype Mono", monospace;
+}
+
+.container {
+  position: relative;
+  .selected_card_container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    .selected_card {
+      img {
+        width: 600px;
+        height: 600px;
+      }
+    }
+  }
+}

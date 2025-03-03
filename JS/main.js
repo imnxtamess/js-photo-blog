@@ -4,6 +4,7 @@
 
 const cardContainerEl = document.querySelector(".row")
 
+
 // make an ajax request to the boolean endpoint and render the cards on page
 
 const booleanEndPoint = "https://lanciweb.github.io/demo/api/pictures/"
@@ -13,10 +14,16 @@ fetch(booleanEndPoint)
   .then(data => {
     // cycle through the data and save the needed variables to fill the cards
     renderCards(data)
+    const photo_cardEl = document.querySelectorAll(".card_body")
+    console.log(photo_cardEl);
+    photo_cardEl.forEach(card => {
+      card.addEventListener("click", function () {
+
+      })
+
+    })
 
   }).catch(err => console.error(err))
-
-
 
 
 
@@ -68,3 +75,4 @@ function renderCards(data) {
     cardContainerEl.insertAdjacentHTML('beforeend', markup(title, date, imgUrl))
   })
 }
+
